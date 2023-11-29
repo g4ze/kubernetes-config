@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cattodb-deployment
+  labels:
+    app: cattodb
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: cattodb
+  template:
+    metadata:
+      labels:
+        app: cattodb
+    spec:
+      containers:
+      - name: cattodb
+        image: g4ze/cattodb
+        ports:
+        - containerPort: 8000
+
